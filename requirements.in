@@ -1,0 +1,10 @@
+Django~=2.0
+django-smart-selects~=1.0
+django-file-resubmit~=0.0
+djangorestframework
+pygments
+pillow~=5.2
+gunicorn
+fabric
+ipython
+
