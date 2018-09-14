@@ -52,6 +52,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
+# When using router, this will be bypassed
 @api_view(['GET'])
 def api_root(request, format=None):
     # note the user-list and snippet-list are the named from url.py
