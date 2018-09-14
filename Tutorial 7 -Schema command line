@@ -1,0 +1,76 @@
+# --- Using CoreAPI to acquire schema of the api --- #
+
+    $ pip install coreapi-cli
+
+
+# Load the schema of the api
+
+    $ coreapi get http://127.0.0.1:8001/schema/
+
+    ---
+    <Pastebin API "http://127.0.0.1:8001/schema/">
+        snippets: {
+            list([page])
+            read(id)
+            highlight(id)
+        }
+        users: {
+            list([page])
+            read(id)
+        }
+    ---
+
+# note below the highlight is the method stated in the schema, also the method are belong to the class
+# Some of the API endpoints require named parameters.
+# For example, to get back the highlight HTML for a particular snippet we need to provide an id.
+
+    $ coreapi action snippets list
+    $ coreapi action snippets highlight --param id=1
+    $ coreapi action snippets read --param id=1
+
+
+# Authenticating our client
+# Add credentials
+
+    $ coreapi credentials add 127.0.0.1 <username>:<password> --auth basic
+
+        Added credentials
+        127.0.0.1 "Basic bWVuZzptZW5nMTIzNA=="
+
+# Reload/Get the page and this time will show you full list
+
+    $ coreapi reload
+
+        <Pastebin API "http://127.0.0.1:8001/schema/">
+            snippets: {
+                list([page])
+                create(code, [title], [linenos], [language], [style])
+                read(id)
+                update(id, code, [title], [linenos], [language], [style])
+                partial_update(id, [title], [code], [linenos], [language], [style])
+                delete(id)
+                highlight(id)
+            }
+            users: {
+                list([page])
+                read(id)
+            }
+
+# Now we can create new snippets
+     $ coreapi action snippets create --param title="Example" --param code="print('hello, world')"
+
+        {
+            "url": "http://127.0.0.1:8001/snippets/3/",
+            "id": 3,
+            "highlight": "http://127.0.0.1:8001/snippets/3/highlight/",
+            "owner": "meng",
+            "title": "Example",
+            "code": "print('hello, world')",
+            "linenos": false,
+            "language": "python",
+            "style": "friendly"
+        }
+
+# and delete snippet
+    $ coreapi action snippets delete --param id=3
+
