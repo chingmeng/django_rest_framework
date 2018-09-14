@@ -51,8 +51,9 @@ class SnippetHighlight(generics.GenericAPIView):
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    print(reverse('user-list', request=request, format=format))
-    print(reverse('snippet-list', request=request, format=format))
+    # note the user-list and snippet-list are the named from url.py
+    print("Reverse of user-list: " + reverse('user-list', request=request, format=format))
+    print("Reverse of snippet-list: " + reverse('snippet-list', request=request, format=format))
     return Response({
         'users': reverse('user-list', request=request, format=format),
         'snippets': reverse('snippet-list', request=request, format=format)
