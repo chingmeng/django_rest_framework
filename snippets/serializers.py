@@ -14,11 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
 # Method 2 for serializing, a faster way to create serializer class
 
 class SnippetSerializer(serializers.ModelSerializer):
-    # owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Snippet
-        fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
+        fields = ('id', 'title', 'code', 'linenos', 'language', 'style', 'owner')
 
 # Method 1 for serializing
 
