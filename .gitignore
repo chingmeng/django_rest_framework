@@ -1,8 +1,6 @@
-
 # IntelliJ
 *.iml
 .idea/
-
 
 # .gitignore for python project
 .installed.cfg
@@ -16,3 +14,11 @@ src/*.egg-info
 lib
 lib64
 *.pyc
+*.sqlite3
+media/
+static/
+
+.python-version
+
+
+venv/
