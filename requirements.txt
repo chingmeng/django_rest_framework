@@ -16,7 +16,7 @@ cryptography==2.7         # via fabric, paramiko
 decorator==4.4.0          # via ipython, traitlets
 django-file-resubmit==0.5.2
 django-smart-selects==1.5.4
-django==2.2.3
+django==2.2.4
 djangorestframework==3.9.4
 fabric==2.4.0
 gunicorn==19.9.0
