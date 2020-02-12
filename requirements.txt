@@ -16,7 +16,7 @@ cryptography==2.7         # via fabric, paramiko
 decorator==4.4.0          # via ipython, traitlets
 django-file-resubmit==0.5.2
 django-smart-selects==1.5.4
-django==2.2.4
+django==2.2.10
 djangorestframework==3.9.4
 fabric==2.4.0
 gunicorn==19.9.0
@@ -48,4 +48,4 @@ urllib3==1.25.3           # via requests
 wcwidth==0.1.7            # via prompt-toolkit
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools==41.4.0        # via ipython
+# setuptools
